@@ -1,0 +1,41 @@
+{
+  "name": "alexa-xbox",
+  "version": "1.0.0",
+  "description": "Turn on your Xbox using Alexa.",
+  "main": "index.js",
+  "keywords": "alexa,xbox,xbox one,power on",
+  "dependencies": {
+    "alexa-sdk": "^1.0.6",
+    "dgram": "^1.0.1",
+    "xbox-onoff": "0.0.4"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-zip": "^3.2.0",
+    "gulp-awslambda": "0.4.0",
+    "del": "2.2.2",
+    "run-sequence": "1.2.2",
+    "jshint": "^2.9.4",
+    "pre-commit": "^1.2.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "jshint": "jshint -c .jshintrc --exclude-path .gitignore ./src/index.js",
+    "build": "gulp build",
+    "deploy": "gulp deploy"
+  },
+  "pre-commit": [
+    "jshint"
+  ],
+  "author": {
+    "name": "Eoghan O'Brien",
+    "url": "https://github.com/eoghanobrien"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eoghanobrien/alexa-xbox-nodejs"
+  },
+  "bugs": "https://github.com/eoghanobrien/alexa-xbox-nodejs/issues",
+  "license": "BSD-3-Clause"
+}
