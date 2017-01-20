@@ -1,0 +1,4 @@
+TurnOnXboxIntent on
+TurnOnXboxIntent turn on
+TurnOnXboxIntent power on
+TurnOnXboxIntent power up

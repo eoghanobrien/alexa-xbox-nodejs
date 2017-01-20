@@ -3,17 +3,9 @@ const del = require('del');
 const sequence = require('run-sequence');
 const zip = require('gulp-zip');
 const lambda = require('gulp-awslambda');
+const filesystem = require('fs');
 
-let params = {
-  FunctionName: '<YOUR_LAMBDA_FUNCTION>',
-  Role: '<YOUR_ROLE_ARN>'
-  Description: "Power on your Xbox with Alexa",
-  Timeout: 10,
-};
-
-let options = {
-  region: '<YOUR_AWS_REGION>'
-};
+let settings = JSON.parse(filesystem.readFileSync('env.json', 'utf8'));
 
 // Copy node_modules to 'archive'
 gulp.task('copy:modules', () => {
@@ -49,7 +41,8 @@ gulp.task('build', () => {
 
 // Deploy to AWS Lambda
 gulp.task('deploy', () => {
-  return gulp.src('./dist/archive.zip').pipe(lambda(params, options));
+  return gulp.src('./dist/archive.zip')
+             .pipe(lambda(settings.params, settings.options));
 });
 
 gulp.task('watch', () => {
